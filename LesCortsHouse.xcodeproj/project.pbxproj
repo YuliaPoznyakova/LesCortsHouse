@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		261E575C2BDFEF420076253F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E575B2BDFEF420076253F /* AppDelegate.swift */; };
 		261E575E2BDFEF420076253F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E575D2BDFEF420076253F /* SceneDelegate.swift */; };
-		261E57602BDFEF420076253F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E575F2BDFEF420076253F /* ViewController.swift */; };
-		261E57632BDFEF420076253F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 261E57612BDFEF420076253F /* Main.storyboard */; };
+		261E57602BDFEF420076253F /* DishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E575F2BDFEF420076253F /* DishListViewController.swift */; };
 		261E57652BDFEF430076253F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 261E57642BDFEF430076253F /* Assets.xcassets */; };
 		261E57682BDFEF430076253F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 261E57662BDFEF430076253F /* LaunchScreen.storyboard */; };
+		261E57712BDFF8430076253F /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E57702BDFF8430076253F /* Dish.swift */; };
+		261E57732BE117A80076253F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 261E57722BE117A80076253F /* Main.storyboard */; };
+		261E57752BE11BB50076253F /* DishCheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E57742BE11BB50076253F /* DishCheckBoxButton.swift */; };
+		261E57772BE11DBC0076253F /* DishListViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E57762BE11DBC0076253F /* DishListViewController+Actions.swift */; };
+		261E57792BE12CEB0076253F /* DishListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E57782BE12CEB0076253F /* DishListViewController+DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		261E57582BDFEF420076253F /* LesCortsHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LesCortsHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		261E575B2BDFEF420076253F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		261E575D2BDFEF420076253F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		261E575F2BDFEF420076253F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		261E57622BDFEF420076253F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		261E575F2BDFEF420076253F /* DishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListViewController.swift; sourceTree = "<group>"; };
 		261E57642BDFEF430076253F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		261E57672BDFEF430076253F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		261E57692BDFEF430076253F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		261E57702BDFF8430076253F /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		261E57722BE117A80076253F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		261E57742BE11BB50076253F /* DishCheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCheckBoxButton.swift; sourceTree = "<group>"; };
+		261E57762BE11DBC0076253F /* DishListViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DishListViewController+Actions.swift"; sourceTree = "<group>"; };
+		261E57782BE12CEB0076253F /* DishListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DishListViewController+DataSource.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		261E575A2BDFEF420076253F /* LesCortsHouse */ = {
 			isa = PBXGroup;
 			children = (
+				261E576F2BDFF7EC0076253F /* ListViewController */,
 				261E575B2BDFEF420076253F /* AppDelegate.swift */,
 				261E575D2BDFEF420076253F /* SceneDelegate.swift */,
-				261E575F2BDFEF420076253F /* ViewController.swift */,
-				261E57612BDFEF420076253F /* Main.storyboard */,
+				261E57722BE117A80076253F /* Main.storyboard */,
 				261E57642BDFEF430076253F /* Assets.xcassets */,
 				261E57662BDFEF430076253F /* LaunchScreen.storyboard */,
 				261E57692BDFEF430076253F /* Info.plist */,
 			);
 			path = LesCortsHouse;
+			sourceTree = "<group>";
+		};
+		261E576F2BDFF7EC0076253F /* ListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				261E575F2BDFEF420076253F /* DishListViewController.swift */,
+				261E57702BDFF8430076253F /* Dish.swift */,
+				261E57742BE11BB50076253F /* DishCheckBoxButton.swift */,
+				261E57762BE11DBC0076253F /* DishListViewController+Actions.swift */,
+				261E57782BE12CEB0076253F /* DishListViewController+DataSource.swift */,
+			);
+			path = ListViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +145,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261E57732BE117A80076253F /* Main.storyboard in Resources */,
 				261E57682BDFEF430076253F /* LaunchScreen.storyboard in Resources */,
 				261E57652BDFEF430076253F /* Assets.xcassets in Resources */,
-				261E57632BDFEF420076253F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				261E57602BDFEF420076253F /* ViewController.swift in Sources */,
+				261E57602BDFEF420076253F /* DishListViewController.swift in Sources */,
+				261E57752BE11BB50076253F /* DishCheckBoxButton.swift in Sources */,
+				261E57792BE12CEB0076253F /* DishListViewController+DataSource.swift in Sources */,
+				261E57772BE11DBC0076253F /* DishListViewController+Actions.swift in Sources */,
+				261E57712BDFF8430076253F /* Dish.swift in Sources */,
 				261E575C2BDFEF420076253F /* AppDelegate.swift in Sources */,
 				261E575E2BDFEF420076253F /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +171,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		261E57612BDFEF420076253F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				261E57622BDFEF420076253F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		261E57662BDFEF430076253F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
