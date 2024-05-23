@@ -34,6 +34,20 @@ class DishListViewController: UICollectionViewController {
         collectionView.dataSource = dataSource
     }
     
+    override func collectionView(
+        _ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath
+    ) -> Bool {
+        let id = dishes[indexPath.item].id
+        pushDetailListViewForDish(withId: id)
+        return false
+    }
+    
+    func pushDetailListViewForDish(withId id: Dish.ID) {
+        let dish = dish(withId: id)
+        let viewController = DishViewController(dish: dish)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     private func listLayout() -> UICollectionViewCompositionalLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
         listConfiguration.showsSeparators = true

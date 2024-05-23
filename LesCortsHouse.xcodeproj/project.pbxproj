@@ -17,6 +17,8 @@
 		261E57752BE11BB50076253F /* DishCheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E57742BE11BB50076253F /* DishCheckBoxButton.swift */; };
 		261E57772BE11DBC0076253F /* DishListViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E57762BE11DBC0076253F /* DishListViewController+Actions.swift */; };
 		261E57792BE12CEB0076253F /* DishListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E57782BE12CEB0076253F /* DishListViewController+DataSource.swift */; };
+		263BCF0E2BFFD0E10037242D /* DishViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF0D2BFFD0E10037242D /* DishViewConroller.swift */; };
+		263BCF102BFFDBAC0037242D /* ReminderViewController+Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF0F2BFFDBAC0037242D /* ReminderViewController+Row.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		261E57742BE11BB50076253F /* DishCheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCheckBoxButton.swift; sourceTree = "<group>"; };
 		261E57762BE11DBC0076253F /* DishListViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DishListViewController+Actions.swift"; sourceTree = "<group>"; };
 		261E57782BE12CEB0076253F /* DishListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DishListViewController+DataSource.swift"; sourceTree = "<group>"; };
+		263BCF0D2BFFD0E10037242D /* DishViewConroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewConroller.swift; sourceTree = "<group>"; };
+		263BCF0F2BFFDBAC0037242D /* ReminderViewController+Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Row.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +87,18 @@
 				261E57742BE11BB50076253F /* DishCheckBoxButton.swift */,
 				261E57762BE11DBC0076253F /* DishListViewController+Actions.swift */,
 				261E57782BE12CEB0076253F /* DishListViewController+DataSource.swift */,
+				263BCF0C2BFF9C900037242D /* DetailViewController */,
 			);
 			path = ListViewController;
+			sourceTree = "<group>";
+		};
+		263BCF0C2BFF9C900037242D /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				263BCF0D2BFFD0E10037242D /* DishViewConroller.swift */,
+				263BCF0F2BFFDBAC0037242D /* ReminderViewController+Row.swift */,
+			);
+			path = DetailViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,8 +177,10 @@
 				261E57792BE12CEB0076253F /* DishListViewController+DataSource.swift in Sources */,
 				261E57772BE11DBC0076253F /* DishListViewController+Actions.swift in Sources */,
 				261E57712BDFF8430076253F /* Dish.swift in Sources */,
+				263BCF0E2BFFD0E10037242D /* DishViewConroller.swift in Sources */,
 				261E575C2BDFEF420076253F /* AppDelegate.swift in Sources */,
 				261E575E2BDFEF420076253F /* SceneDelegate.swift in Sources */,
+				263BCF102BFFDBAC0037242D /* ReminderViewController+Row.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
