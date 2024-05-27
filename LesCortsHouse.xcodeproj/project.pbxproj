@@ -18,7 +18,8 @@
 		261E57772BE11DBC0076253F /* DishListViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E57762BE11DBC0076253F /* DishListViewController+Actions.swift */; };
 		261E57792BE12CEB0076253F /* DishListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E57782BE12CEB0076253F /* DishListViewController+DataSource.swift */; };
 		263BCF0E2BFFD0E10037242D /* DishViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF0D2BFFD0E10037242D /* DishViewConroller.swift */; };
-		263BCF102BFFDBAC0037242D /* ReminderViewController+Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF0F2BFFDBAC0037242D /* ReminderViewController+Row.swift */; };
+		263BCF102BFFDBAC0037242D /* DishViewController+Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF0F2BFFDBAC0037242D /* DishViewController+Row.swift */; };
+		263BCF142C00D0B70037242D /* DishViewController+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF132C00D0B70037242D /* DishViewController+Section.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,8 @@
 		261E57762BE11DBC0076253F /* DishListViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DishListViewController+Actions.swift"; sourceTree = "<group>"; };
 		261E57782BE12CEB0076253F /* DishListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DishListViewController+DataSource.swift"; sourceTree = "<group>"; };
 		263BCF0D2BFFD0E10037242D /* DishViewConroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewConroller.swift; sourceTree = "<group>"; };
-		263BCF0F2BFFDBAC0037242D /* ReminderViewController+Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Row.swift"; sourceTree = "<group>"; };
+		263BCF0F2BFFDBAC0037242D /* DishViewController+Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DishViewController+Row.swift"; sourceTree = "<group>"; };
+		263BCF132C00D0B70037242D /* DishViewController+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DishViewController+Section.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				263BCF0D2BFFD0E10037242D /* DishViewConroller.swift */,
-				263BCF0F2BFFDBAC0037242D /* ReminderViewController+Row.swift */,
+				263BCF132C00D0B70037242D /* DishViewController+Section.swift */,
+				263BCF0F2BFFDBAC0037242D /* DishViewController+Row.swift */,
 			);
 			path = DetailViewController;
 			sourceTree = "<group>";
@@ -180,7 +183,8 @@
 				263BCF0E2BFFD0E10037242D /* DishViewConroller.swift in Sources */,
 				261E575C2BDFEF420076253F /* AppDelegate.swift in Sources */,
 				261E575E2BDFEF420076253F /* SceneDelegate.swift in Sources */,
-				263BCF102BFFDBAC0037242D /* ReminderViewController+Row.swift in Sources */,
+				263BCF142C00D0B70037242D /* DishViewController+Section.swift in Sources */,
+				263BCF102BFFDBAC0037242D /* DishViewController+Row.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

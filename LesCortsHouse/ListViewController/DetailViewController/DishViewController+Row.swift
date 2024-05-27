@@ -9,6 +9,7 @@ import UIKit
 
 extension DishViewController {
     enum Row: Hashable {
+        case header(String)
         case title
         case description
         
