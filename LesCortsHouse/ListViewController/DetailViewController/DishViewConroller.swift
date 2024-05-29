@@ -47,7 +47,7 @@ class DishViewController: UICollectionViewController {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         if editing {
-            updateSnapshotForViewing()
+            updateSnapshotForEditing()
         } else {
             updateSnapshotForViewing()
         }
@@ -57,34 +57,23 @@ class DishViewController: UICollectionViewController {
         let section = section(for: indexPath)
         switch (section, row) {
         case (_, .header(let title)):
-            var contentConfiguration = cell.defaultContentConfiguration()
-            contentConfiguration.text = title
-            cell.contentConfiguration = contentConfiguration
+            cell.contentConfiguration = headerConfiguration(for: cell, with: title)
         case (.view, _):
-            var contentConfiguration = cell.defaultContentConfiguration()
-            contentConfiguration.text = text(for: row)
-            contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: row.textStyle)
-            contentConfiguration.image = row.image
-            cell.contentConfiguration = contentConfiguration
-            cell.tintColor = .lightGray
+            cell.contentConfiguration = defaultConfiguration(for: cell, at: row)
+        case (.title, .editableText(let title)):
+            cell.contentConfiguration = titleConfiguration(for: cell, with: title)
+        case (.description, .editableText(let description)):
+            cell.contentConfiguration = descriptionConfiguration(for: cell, with: description)
         default:
             fatalError("Unexpected combination of section and row.")
-        }
-    }
-    
-    func text(for row: Row) -> String? {
-        switch row {
-        case .title: return dish.title
-        case .description: return dish.description
-        default: return nil
         }
     }
     
     private func updateSnapshotForEditing() {
         var snapshot = Snapshot()
         snapshot.appendSections([.title, .description])
-        snapshot.appendItems([.header(Section.title.name)], toSection: .title)
-        snapshot.appendItems([.header(Section.description.name)], toSection: .description)
+        snapshot.appendItems([.header(Section.title.name), .editableText(dish.title)], toSection: .title)
+        snapshot.appendItems([.header(Section.description.name), .editableText(dish.description)], toSection: .description)
         dataSource.apply(snapshot)
     }
     

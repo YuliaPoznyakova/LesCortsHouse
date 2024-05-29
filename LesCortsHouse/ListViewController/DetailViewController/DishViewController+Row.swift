@@ -12,6 +12,7 @@ extension DishViewController {
         case header(String)
         case title
         case description
+        case editableText(String?)
         
         var imageName: String? {
             switch self {
