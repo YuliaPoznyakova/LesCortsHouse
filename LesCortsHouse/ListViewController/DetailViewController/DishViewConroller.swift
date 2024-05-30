@@ -12,11 +12,19 @@ class DishViewController: UICollectionViewController {
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, Row>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Row>
     
-    var dish: Dish
+    var dish: Dish {
+        didSet {
+            onChange(dish)
+        }
+    }
+    var workingDish: Dish
+    var onChange: (Dish) -> Void
     private var dataSource: DataSource!
     
-    init(dish: Dish) {
+    init(dish: Dish, onChange: @escaping (Dish) -> Void) {
         self.dish = dish
+        self.workingDish = dish
+        self.onChange = onChange
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         listConfiguration.showsSeparators = false
         listConfiguration.headerMode = .firstItemInSection
@@ -47,10 +55,15 @@ class DishViewController: UICollectionViewController {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         if editing {
-            updateSnapshotForEditing()
+            prepareForEditing()
         } else {
-            updateSnapshotForViewing()
+            prepareForViewing()
         }
+    }
+    
+    private func prepareForEditing() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didCancelEdit))
+        updateSnapshotForEditing()
     }
     
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
@@ -76,6 +89,19 @@ class DishViewController: UICollectionViewController {
         snapshot.appendItems([.header(Section.description.name), .editableText(dish.description)], toSection: .description)
         dataSource.apply(snapshot)
     }
+    
+    @objc func didCancelEdit() {
+        workingDish = dish
+        setEditing(false, animated: true)
+    }
+    
+    private func prepareForViewing() {
+        navigationItem.leftBarButtonItem = nil
+            if workingDish != dish {
+                dish = workingDish
+            }
+            updateSnapshotForViewing()
+        }
     
     private func updateSnapshotForViewing() {
         var snapshot = Snapshot()

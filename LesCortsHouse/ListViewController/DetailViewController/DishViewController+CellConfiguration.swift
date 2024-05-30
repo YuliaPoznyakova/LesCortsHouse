@@ -31,6 +31,9 @@ extension DishViewController {
     {
         var contentConfiguration = cell.textFieldConfiguration()
         contentConfiguration.text = title
+        contentConfiguration.onChange = { [weak self] title in
+            self?.workingDish.title = title
+        }
         return contentConfiguration
     }
     
@@ -39,6 +42,9 @@ extension DishViewController {
     {
         var contentConfiguration = cell.textViewConfiguration()
         contentConfiguration.text = description
+        contentConfiguration.onChange = { [ weak self ] description in
+            self?.workingDish.description = description
+        }
         return contentConfiguration
     }
     

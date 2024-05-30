@@ -44,7 +44,10 @@ class DishListViewController: UICollectionViewController {
     
     func pushDetailListViewForDish(withId id: Dish.ID) {
         let dish = dish(withId: id)
-        let viewController = DishViewController(dish: dish)
+        let viewController = DishViewController(dish: dish) { [weak self] dish in
+            self?.updateDish(dish)
+            self?.updateSnapshot(reloading: [dish.id])
+        }
         navigationController?.pushViewController(viewController, animated: true)
     }
     

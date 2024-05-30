@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Dish: Identifiable {
+struct Dish: Equatable, Identifiable {
     var id: String = UUID().uuidString
     var title: String
     var image: String
