@@ -19,10 +19,11 @@ extension DishListViewController {
         NSLocalizedString("Not completed", comment: "Dish not completed value")
     }
     
-    func updateSnapshot(reloading ids: [Dish.ID] = []) {
+    func updateSnapshot(reloading idsThatChanged: [Dish.ID] = []) {
+        let ids = idsThatChanged.filter { id in filteredDishes.contains(where: { $0.id == id }) }
         var snapshot = Snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems(dishes.map { $0.id })
+        snapshot.appendItems(filteredDishes.map { $0.id })
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
         }

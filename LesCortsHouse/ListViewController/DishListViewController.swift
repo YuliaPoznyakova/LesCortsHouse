@@ -11,6 +11,15 @@ class DishListViewController: UICollectionViewController {
     
     var dataSource: DataSource!
     var dishes: [Dish] = Dish.sampleData
+    var listStyle: DishListStyle = .all
+    var filteredDishes: [Dish] {
+        return dishes.filter { listStyle.shouldInclude(spicy: $0.spicy) }.sorted {
+            $0.spicy && !$1.spicy
+        }
+    }
+    let listStyleSegmentedControl = UISegmentedControl(items: [
+        DishListStyle.hot.name, DishListStyle.original.name, DishListStyle.all.name
+    ])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +42,11 @@ class DishListViewController: UICollectionViewController {
             barButtonSystemItem: .add, target: self, action: #selector(didPressAddButton(_:)))
         addButton.accessibilityLabel = NSLocalizedString("Add dish", comment: "Add dish accessibility label")
         navigationItem.rightBarButtonItem = addButton
+        
+        listStyleSegmentedControl.selectedSegmentIndex = listStyle.rawValue
+        listStyleSegmentedControl.addTarget(self, action: #selector(didChangeListStyle(_:)), for: .valueChanged)
+        navigationItem.titleView = listStyleSegmentedControl
+        
         if #available(iOS 16, *) {
             navigationItem.style = .navigator
         }
@@ -45,7 +59,7 @@ class DishListViewController: UICollectionViewController {
     override func collectionView(
         _ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath
     ) -> Bool {
-        let id = dishes[indexPath.item].id
+        let id = filteredDishes[indexPath.item].id
         pushDetailListViewForDish(withId: id)
         return false
     }

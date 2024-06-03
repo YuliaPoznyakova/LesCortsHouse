@@ -25,6 +25,7 @@
 		263BCF292C0739980037242D /* TextFieldContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF282C0739980037242D /* TextFieldContentView.swift */; };
 		263BCF2B2C0741170037242D /* UIContentConfiguration+Stateless.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF2A2C0741170037242D /* UIContentConfiguration+Stateless.swift */; };
 		263BCF2D2C074B3B0037242D /* TextViewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF2C2C074B3B0037242D /* TextViewContentView.swift */; };
+		2667AD9C2C0E406C00F4F935 /* DishListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		263BCF282C0739980037242D /* TextFieldContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContentView.swift; sourceTree = "<group>"; };
 		263BCF2A2C0741170037242D /* UIContentConfiguration+Stateless.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIContentConfiguration+Stateless.swift"; sourceTree = "<group>"; };
 		263BCF2C2C074B3B0037242D /* TextViewContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewContentView.swift; sourceTree = "<group>"; };
+		2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		261E575A2BDFEF420076253F /* LesCortsHouse */ = {
 			isa = PBXGroup;
 			children = (
+				2667AD9A2C0E405200F4F935 /* Models */,
 				263BCF252C0663ED0037242D /* ContentViews */,
 				261E576F2BDFF7EC0076253F /* ListViewController */,
 				261E575B2BDFEF420076253F /* AppDelegate.swift */,
@@ -125,6 +128,14 @@
 				263BCF2A2C0741170037242D /* UIContentConfiguration+Stateless.swift */,
 			);
 			path = ContentViews;
+			sourceTree = "<group>";
+		};
+		2667AD9A2C0E405200F4F935 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 				263BCF292C0739980037242D /* TextFieldContentView.swift in Sources */,
 				263BCF272C06642F0037242D /* UIView+PinnedSubview.swift in Sources */,
 				261E57602BDFEF420076253F /* DishListViewController.swift in Sources */,
+				2667AD9C2C0E406C00F4F935 /* DishListStyle.swift in Sources */,
 				261E57752BE11BB50076253F /* DishCheckBoxButton.swift in Sources */,
 				263BCF242C065EF90037242D /* DishViewController+CellConfiguration.swift in Sources */,
 				261E57792BE12CEB0076253F /* DishListViewController+DataSource.swift in Sources */,
