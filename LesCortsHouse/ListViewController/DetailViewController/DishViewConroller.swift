@@ -18,6 +18,7 @@ class DishViewController: UICollectionViewController {
         }
     }
     var workingDish: Dish
+    var isAddingNewDish = false
     var onChange: (Dish) -> Void
     private var dataSource: DataSource!
     
@@ -57,7 +58,11 @@ class DishViewController: UICollectionViewController {
         if editing {
             prepareForEditing()
         } else {
-            prepareForViewing()
+            if isAddingNewDish {
+                onChange(workingDish)
+            } else {
+                prepareForViewing()
+            }
         }
     }
     
@@ -108,6 +113,7 @@ class DishViewController: UICollectionViewController {
         snapshot.appendSections([.view])
         snapshot.appendItems(
             [Row.header(""), Row.title, Row.description], toSection: .view)
+        snapshot.appendItems([Row.title, Row.description], toSection: .view)
         dataSource.apply(snapshot)
     }
     

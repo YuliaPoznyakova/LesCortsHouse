@@ -29,6 +29,14 @@ class DishListViewController: UICollectionViewController {
         snapshot.appendItems(dishes.map { $0.title })
         dataSource.apply(snapshot)
         
+        let addButton = UIBarButtonItem(
+            barButtonSystemItem: .add, target: self, action: #selector(didPressAddButton(_:)))
+        addButton.accessibilityLabel = NSLocalizedString("Add dish", comment: "Add dish accessibility label")
+        navigationItem.rightBarButtonItem = addButton
+        if #available(iOS 16, *) {
+            navigationItem.style = .navigator
+        }
+        
         updateSnapshot()
         
         collectionView.dataSource = dataSource
@@ -54,8 +62,23 @@ class DishListViewController: UICollectionViewController {
     private func listLayout() -> UICollectionViewCompositionalLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
         listConfiguration.showsSeparators = true
+        listConfiguration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
         listConfiguration.backgroundColor = .cyan
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
+    }
+    
+    private func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
+        guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else {
+            return nil
+        }
+        let deleteActionTitle = NSLocalizedString("Delete", comment: "Delete action title")
+        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) {
+            [weak self] _, _, completion in
+            self?.deleteDish(withId: id)
+            self?.updateSnapshot()
+            completion(false)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
 

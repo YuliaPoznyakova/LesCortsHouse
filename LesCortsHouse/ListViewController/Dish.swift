@@ -10,9 +10,9 @@ import Foundation
 struct Dish: Equatable, Identifiable {
     var id: String = UUID().uuidString
     var title: String
-    var image: String
-    var description: String
-    var spicy: Bool
+    var image: String = ""
+    var description: String = ""
+    var spicy: Bool = false
     var isComplete: Bool = false
 }
 

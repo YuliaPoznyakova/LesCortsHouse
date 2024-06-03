@@ -63,6 +63,15 @@ extension DishListViewController {
         dish.isComplete.toggle()
         updateDish(dish)
     }
+    
+    func addDish(_ dish: Dish) {
+        dishes.append(dish)
+    }
+    
+    func deleteDish(withId id: Dish.ID) {
+        let index = dishes.indexOfDish(withId: id)
+        dishes.remove(at: index)
+    }
 
     private func dishButtonAccessibilityAction(for dish: Dish) -> UIAccessibilityCustomAction {
         let name = NSLocalizedString("Toggle completion", comment: "Dish done button accessibility label")

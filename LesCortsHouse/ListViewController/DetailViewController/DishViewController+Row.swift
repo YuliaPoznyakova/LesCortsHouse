@@ -1,5 +1,5 @@
 //
-//  ReminderViewController+Row.swift
+//  DishViewController+Row.swift
 //  LesCortsHouse
 //
 //  Created by Yulia Poznyakova on 23.05.2024.
