@@ -30,10 +30,10 @@ extension [Dish] {
 extension Dish {
     static var sampleData = [
         Dish (title: "Пицка", image: "ин прогресс", description: "Если лень готовить, то пойдет!", spicy: true),
-        Dish (title: "Чкмерули", image: "ин прогресс", description: "Классика!", spicy: true),
+        Dish (title: "Чкмерули", image: "ин прогресс", description: "Классика!", spicy: true, isComplete: true),
         Dish (title: "Утка", image: "ин прогресс", description: "Вкусная, но подгорела.", spicy: false),
         Dish (title: "Жареная рыба", image: "ин прогресс", description: "С луком.", spicy: true),
-        Dish (title: "Паэлья", image: "ин прогресс", description: "С морепродуктами.", spicy: false),
+        Dish (title: "Паэлья", image: "ин прогресс", description: "С морепродуктами.", spicy: false, isComplete: true),
         Dish (title: "Пиво", image: "ин прогресс", description: "Без этого никак.", spicy: false)
     ]
 }

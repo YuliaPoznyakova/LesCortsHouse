@@ -26,6 +26,7 @@
 		263BCF2B2C0741170037242D /* UIContentConfiguration+Stateless.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF2A2C0741170037242D /* UIContentConfiguration+Stateless.swift */; };
 		263BCF2D2C074B3B0037242D /* TextViewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF2C2C074B3B0037242D /* TextViewContentView.swift */; };
 		2667AD9C2C0E406C00F4F935 /* DishListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */; };
+		2667ADA02C107AA200F4F935 /* ProgressHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667AD9F2C107AA200F4F935 /* ProgressHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		263BCF2A2C0741170037242D /* UIContentConfiguration+Stateless.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIContentConfiguration+Stateless.swift"; sourceTree = "<group>"; };
 		263BCF2C2C074B3B0037242D /* TextViewContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewContentView.swift; sourceTree = "<group>"; };
 		2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListStyle.swift; sourceTree = "<group>"; };
+		2667AD9F2C107AA200F4F935 /* ProgressHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				261E57742BE11BB50076253F /* DishCheckBoxButton.swift */,
 				261E57762BE11DBC0076253F /* DishListViewController+Actions.swift */,
 				261E57782BE12CEB0076253F /* DishListViewController+DataSource.swift */,
+				2667AD9F2C107AA200F4F935 /* ProgressHeaderView.swift */,
 				263BCF0C2BFF9C900037242D /* DetailViewController */,
 			);
 			path = ListViewController;
@@ -218,6 +221,7 @@
 				261E57792BE12CEB0076253F /* DishListViewController+DataSource.swift in Sources */,
 				263BCF2D2C074B3B0037242D /* TextViewContentView.swift in Sources */,
 				261E57772BE11DBC0076253F /* DishListViewController+Actions.swift in Sources */,
+				2667ADA02C107AA200F4F935 /* ProgressHeaderView.swift in Sources */,
 				263BCF2B2C0741170037242D /* UIContentConfiguration+Stateless.swift in Sources */,
 				261E57712BDFF8430076253F /* Dish.swift in Sources */,
 				263BCF0E2BFFD0E10037242D /* DishViewConroller.swift in Sources */,

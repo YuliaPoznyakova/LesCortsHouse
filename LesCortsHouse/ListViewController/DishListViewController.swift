@@ -20,9 +20,20 @@ class DishListViewController: UICollectionViewController {
     let listStyleSegmentedControl = UISegmentedControl(items: [
         DishListStyle.hot.name, DishListStyle.original.name, DishListStyle.all.name
     ])
+    var headerView: ProgressHeaderView?
+    var progress: CGFloat {
+        let chunkSize = 1.0 / CGFloat(filteredDishes.count)
+        let progress = filteredDishes.reduce(0.0) {
+            let chunk = $1.isComplete ? chunkSize : 0
+            return $0 + chunk
+        }
+        return progress
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.backgroundColor = .red
         
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
@@ -31,6 +42,13 @@ class DishListViewController: UICollectionViewController {
         dataSource = DataSource(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: Dish.ID) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+        }
+        
+        let headerRegistration = UICollectionView.SupplementaryRegistration(
+            elementKind: ProgressHeaderView.elementKind, handler: supplimentaryRegistrationHandler)
+        dataSource.supplementaryViewProvider = { supplimentaryView, elementKind, indexPath in
+            return self.collectionView.dequeueConfiguredReusableSupplementary(
+                using: headerRegistration, for: indexPath)
         }
         
         var snapshot = Snapshot()
@@ -64,6 +82,18 @@ class DishListViewController: UICollectionViewController {
         return false
     }
     
+    override func collectionView(
+            _ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView,
+            forElementKind elementKind: String, at indexPath: IndexPath
+        ) {
+            guard elementKind == ProgressHeaderView.elementKind,
+                  let progressView = view as? ProgressHeaderView
+            else {
+                return
+            }
+            progressView.progress = progress
+        }
+    
     func pushDetailListViewForDish(withId id: Dish.ID) {
         let dish = dish(withId: id)
         let viewController = DishViewController(dish: dish) { [weak self] dish in
@@ -75,6 +105,7 @@ class DishListViewController: UICollectionViewController {
     
     private func listLayout() -> UICollectionViewCompositionalLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
+        listConfiguration.headerMode = .supplementary
         listConfiguration.showsSeparators = true
         listConfiguration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
         listConfiguration.backgroundColor = .cyan
@@ -93,6 +124,12 @@ class DishListViewController: UICollectionViewController {
             completion(false)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    private func supplimentaryRegistrationHandler(
+        progressView: ProgressHeaderView, elementKind: String, indexPath: IndexPath
+    ) {
+            headerView = progressView
     }
 }
 
