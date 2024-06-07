@@ -35,5 +35,6 @@ extension DishListViewController {
     @objc func didChangeListStyle(_ sender: UISegmentedControl) {
         listStyle = DishListStyle(rawValue: sender.selectedSegmentIndex) ?? .all
         updateSnapshot()
+        refreshBackground()
     }
 }

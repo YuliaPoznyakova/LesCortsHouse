@@ -27,6 +27,7 @@
 		263BCF2D2C074B3B0037242D /* TextViewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263BCF2C2C074B3B0037242D /* TextViewContentView.swift */; };
 		2667AD9C2C0E406C00F4F935 /* DishListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */; };
 		2667ADA02C107AA200F4F935 /* ProgressHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667AD9F2C107AA200F4F935 /* ProgressHeaderView.swift */; };
+		2667ADA42C12170400F4F935 /* CAGradientLayer+ListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667ADA32C12170400F4F935 /* CAGradientLayer+ListStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		263BCF2C2C074B3B0037242D /* TextViewContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewContentView.swift; sourceTree = "<group>"; };
 		2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListStyle.swift; sourceTree = "<group>"; };
 		2667AD9F2C107AA200F4F935 /* ProgressHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHeaderView.swift; sourceTree = "<group>"; };
+		2667ADA32C12170400F4F935 /* CAGradientLayer+ListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+ListStyle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */,
+				2667ADA32C12170400F4F935 /* CAGradientLayer+ListStyle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				263BCF292C0739980037242D /* TextFieldContentView.swift in Sources */,
 				263BCF272C06642F0037242D /* UIView+PinnedSubview.swift in Sources */,
 				261E57602BDFEF420076253F /* DishListViewController.swift in Sources */,
+				2667ADA42C12170400F4F935 /* CAGradientLayer+ListStyle.swift in Sources */,
 				2667AD9C2C0E406C00F4F935 /* DishListStyle.swift in Sources */,
 				261E57752BE11BB50076253F /* DishCheckBoxButton.swift in Sources */,
 				263BCF242C065EF90037242D /* DishViewController+CellConfiguration.swift in Sources */,
