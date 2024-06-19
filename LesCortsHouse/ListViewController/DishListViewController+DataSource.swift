@@ -46,7 +46,7 @@ extension DishListViewController {
         cell.accessories = [.customView(configuration: dishButtonConfiguration), .disclosureIndicator(displayed: .always)]
         
         var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
-        backgroundConfiguration.backgroundColor = .cyan
+        backgroundConfiguration.backgroundColor = .clear
         cell.backgroundConfiguration = backgroundConfiguration
     }
 

@@ -121,7 +121,7 @@ class DishListViewController: UICollectionViewController {
         listConfiguration.headerMode = .supplementary
         listConfiguration.showsSeparators = true
         listConfiguration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
-        listConfiguration.backgroundColor = .cyan
+        listConfiguration.backgroundColor = .clear
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
     }
     
