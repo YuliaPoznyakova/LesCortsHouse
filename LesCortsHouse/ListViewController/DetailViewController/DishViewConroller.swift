@@ -78,9 +78,9 @@ class DishViewController: UICollectionViewController {
             cell.contentConfiguration = headerConfiguration(for: cell, with: title)
         case (.view, _):
             cell.contentConfiguration = defaultConfiguration(for: cell, at: row)
-        case (.title, .editableText(let title)):
+        case (.textFieldEditing, .editableText(let title, _)):
             cell.contentConfiguration = titleConfiguration(for: cell, with: title)
-        case (.description, .editableText(let description)):
+        case (.textViewEditing, .editableText(let description, _)):
             cell.contentConfiguration = descriptionConfiguration(for: cell, with: description)
         default:
             fatalError("Unexpected combination of section and row.")
@@ -89,9 +89,9 @@ class DishViewController: UICollectionViewController {
     
     private func updateSnapshotForEditing() {
         var snapshot = Snapshot()
-        snapshot.appendSections([.title, .description])
-        snapshot.appendItems([.header(Section.title.name), .editableText(dish.title)], toSection: .title)
-        snapshot.appendItems([.header(Section.description.name), .editableText(dish.description)], toSection: .description)
+        snapshot.appendSections([.textFieldEditing, .textViewEditing])
+        snapshot.appendItems([.header(Section.textFieldEditing.name), .editableText(dish.title, id: Section.textFieldEditing.name)], toSection: .textFieldEditing)
+        snapshot.appendItems([.header(Section.textViewEditing.name), .editableText(dish.description, id: Section.textViewEditing.name)], toSection: .textViewEditing)
         dataSource.apply(snapshot)
     }
     
@@ -102,18 +102,24 @@ class DishViewController: UICollectionViewController {
     
     private func prepareForViewing() {
         navigationItem.leftBarButtonItem = nil
-            if workingDish != dish {
-                dish = workingDish
-            }
-            updateSnapshotForViewing()
+        if workingDish != dish {
+            dish = workingDish
         }
+        updateSnapshotForViewing()
+    }
     
     private func updateSnapshotForViewing() {
         var snapshot = Snapshot()
         snapshot.appendSections([.view])
-        snapshot.appendItems(
-            [Row.header(""), Row.title, Row.description], toSection: .view)
-        snapshot.appendItems([Row.title, Row.description], toSection: .view)
+        snapshot.appendItems([
+            Row.header(""),
+            Row.title,
+            Row.description
+        ], toSection: .view)
+//        snapshot.appendItems([
+//            Row.title,
+//            Row.description
+//        ], toSection: .view)
         dataSource.apply(snapshot)
     }
     

@@ -44,8 +44,8 @@ class TextViewContentView: UIView, UIContentView {
     func configure(configuration: UIContentConfiguration) {
         guard let configuration = configuration as? Configuration else { return }
         textView.text = configuration.text
-        }
     }
+}
 
 extension UICollectionViewListCell {
     func textViewConfiguration() -> TextViewContentView.Configuration {

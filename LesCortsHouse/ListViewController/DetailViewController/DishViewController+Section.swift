@@ -10,15 +10,15 @@ import Foundation
 extension DishViewController {
     enum Section: Int, Hashable {
         case view
-        case title
-        case description
+        case textFieldEditing
+        case textViewEditing
         
         var name: String {
             switch self {
             case .view: return ""
-            case .title:
+            case .textFieldEditing:
                 return NSLocalizedString("Title", comment: "Title section name")
-            case .description:
+            case .textViewEditing:
                 return NSLocalizedString("Description", comment: "Description section name")
             }
         }

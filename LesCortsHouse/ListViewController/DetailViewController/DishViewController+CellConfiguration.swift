@@ -42,7 +42,7 @@ extension DishViewController {
     {
         var contentConfiguration = cell.textViewConfiguration()
         contentConfiguration.text = description
-        contentConfiguration.onChange = { [ weak self ] description in
+        contentConfiguration.onChange = { [weak self] description in
             self?.workingDish.description = description
         }
         return contentConfiguration

@@ -12,12 +12,11 @@ extension DishViewController {
         case header(String)
         case title
         case description
-        case editableText(String?)
+        case editableText(String?, id: String)
         
         var imageName: String? {
             switch self {
-            case .title: return "name"
-            case .description: return "content"
+            case .description: return "square.and.pencil"
             default: return nil
             }
         }
