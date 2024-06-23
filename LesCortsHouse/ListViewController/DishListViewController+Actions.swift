@@ -11,12 +11,14 @@ extension DishListViewController {
     @objc func didPressDishCheckBoxButton(_ sender: DishCheckBoxButton) {
         guard let id = sender.id else { return }
         completeDish(withId: id)
+        updateSnapshot(reloading: [id])
     }
     
     @objc func didPressAddButton(_ sender: UIBarButtonItem) {
-        let dish = Dish(title: "")
-        let viewController = DishViewController(dish: dish) { [weak self] dish in
-            self?.addDish(dish)
+        let viewController = DishViewController(dish: nil) { [weak self] dish in
+            if let dish {
+                self?.addDish(dish)
+            }
             self?.updateSnapshot()
             self?.dismiss(animated: true)
         }

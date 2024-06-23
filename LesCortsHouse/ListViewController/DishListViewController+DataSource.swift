@@ -36,7 +36,7 @@ extension DishListViewController {
         let dish = dish(withId: id)
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = dish.title
-        contentConfiguration.secondaryText = dish.description
+        contentConfiguration.secondaryText = dish.notes
         cell.contentConfiguration = contentConfiguration
         
         var dishButtonConfiguration = dishButtonConfiguration(for: dish)
@@ -51,28 +51,36 @@ extension DishListViewController {
     }
 
     func dish(withId id: Dish.ID) -> Dish {
+//        let index = dishes.indexOfDish(withId: id)
+//        return dishes[index]
+        let dishes = DishStorageManager.shared.fetchDishes()
         let index = dishes.indexOfDish(withId: id)
         return dishes[index]
+        
     }
 
     func updateDish(_ dish: Dish) {
-        let index = dishes.indexOfDish(withId: dish.id)
-        dishes[index] = dish
+//        let index = dishes.indexOfDish(withId: dish.id)
+//        dishes[index] = dish
+        DishStorageManager.shared.updateDish(dish)
     }
 
     func completeDish(withId id: Dish.ID) {
-        var dish = dish(withId: id)
-        dish.isComplete.toggle()
-        updateDish(dish)
+//        let dish = dish(withId: id)
+//        dish.isComplete.toggle()
+        DishStorageManager.shared.completeDish(with: id)
+//        updateDish(dish)
     }
     
     func addDish(_ dish: Dish) {
-        dishes.append(dish)
+//        dishes.append(dish)
+        DishStorageManager.shared.addDish(dish)
     }
     
     func deleteDish(withId id: Dish.ID) {
-        let index = dishes.indexOfDish(withId: id)
-        dishes.remove(at: index)
+//        let index = dishes.indexOfDish(withId: id)
+//        dishes.remove(at: index)
+        DishStorageManager.shared.deleteDish(with: id)
     }
 
     private func dishButtonAccessibilityAction(for dish: Dish) -> UIAccessibilityCustomAction {

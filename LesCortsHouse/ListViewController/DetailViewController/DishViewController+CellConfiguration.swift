@@ -32,26 +32,26 @@ extension DishViewController {
         var contentConfiguration = cell.textFieldConfiguration()
         contentConfiguration.text = title
         contentConfiguration.onChange = { [weak self] title in
-            self?.workingDish.title = title
+            self?.workingDish?.title = title
         }
         return contentConfiguration
     }
     
-    func descriptionConfiguration(for cell: UICollectionViewListCell, with description: String?)
+    func notesConfiguration(for cell: UICollectionViewListCell, with notes: String?)
     -> TextViewContentView.Configuration
     {
         var contentConfiguration = cell.textViewConfiguration()
-        contentConfiguration.text = description
-        contentConfiguration.onChange = { [weak self] description in
-            self?.workingDish.description = description
+        contentConfiguration.text = notes
+        contentConfiguration.onChange = { [weak self] notes in
+            self?.workingDish?.notes = notes
         }
         return contentConfiguration
     }
     
     func text(for row: Row) -> String? {
         switch row {
-        case .title: return dish.title
-        case .description: return dish.description
+        case .title: return dish?.title
+        case .notes: return dish?.notes
         default: return nil
         }
     }

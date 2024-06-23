@@ -19,7 +19,7 @@ extension DishViewController {
             case .textFieldEditing:
                 return NSLocalizedString("Title", comment: "Title section name")
             case .textViewEditing:
-                return NSLocalizedString("Description", comment: "Description section name")
+                return NSLocalizedString("Notes", comment: "Notes section name")
             }
         }
     }

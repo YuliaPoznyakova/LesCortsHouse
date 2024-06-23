@@ -12,19 +12,21 @@ class DishViewController: UICollectionViewController {
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, Row>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Row>
     
-    var dish: Dish {
+    let dishStorage = DishStorageManager.shared
+    
+    var dish: Dish? {
         didSet {
             onChange(dish)
         }
     }
-    var workingDish: Dish
+    var workingDish: Dish?
     var isAddingNewDish = false
-    var onChange: (Dish) -> Void
+    var onChange: (Dish?) -> Void
     private var dataSource: DataSource!
     
-    init(dish: Dish, onChange: @escaping (Dish) -> Void) {
+    init(dish: Dish?, onChange: @escaping (Dish?) -> Void) {
         self.dish = dish
-        self.workingDish = dish
+        self.workingDish = dish ?? dishStorage.createDish(UUID(), "", "")
         self.onChange = onChange
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         listConfiguration.showsSeparators = false
@@ -61,6 +63,7 @@ class DishViewController: UICollectionViewController {
             if isAddingNewDish {
                 onChange(workingDish)
             } else {
+                onChange(workingDish)
                 prepareForViewing()
             }
         }
@@ -80,8 +83,8 @@ class DishViewController: UICollectionViewController {
             cell.contentConfiguration = defaultConfiguration(for: cell, at: row)
         case (.textFieldEditing, .editableText(let title, _)):
             cell.contentConfiguration = titleConfiguration(for: cell, with: title)
-        case (.textViewEditing, .editableText(let description, _)):
-            cell.contentConfiguration = descriptionConfiguration(for: cell, with: description)
+        case (.textViewEditing, .editableText(let notes, _)):
+            cell.contentConfiguration = notesConfiguration(for: cell, with: notes)
         default:
             fatalError("Unexpected combination of section and row.")
         }
@@ -90,8 +93,8 @@ class DishViewController: UICollectionViewController {
     private func updateSnapshotForEditing() {
         var snapshot = Snapshot()
         snapshot.appendSections([.textFieldEditing, .textViewEditing])
-        snapshot.appendItems([.header(Section.textFieldEditing.name), .editableText(dish.title, id: Section.textFieldEditing.name)], toSection: .textFieldEditing)
-        snapshot.appendItems([.header(Section.textViewEditing.name), .editableText(dish.description, id: Section.textViewEditing.name)], toSection: .textViewEditing)
+        snapshot.appendItems([.header(Section.textFieldEditing.name), .editableText(dish?.title, id: Section.textFieldEditing.name)], toSection: .textFieldEditing)
+        snapshot.appendItems([.header(Section.textViewEditing.name), .editableText(dish?.notes, id: Section.textViewEditing.name)], toSection: .textViewEditing)
         dataSource.apply(snapshot)
     }
     
@@ -114,11 +117,11 @@ class DishViewController: UICollectionViewController {
         snapshot.appendItems([
             Row.header(""),
             Row.title,
-            Row.description
+            Row.notes
         ], toSection: .view)
 //        snapshot.appendItems([
 //            Row.title,
-//            Row.description
+//            Row.notes
 //        ], toSection: .view)
         dataSource.apply(snapshot)
     }

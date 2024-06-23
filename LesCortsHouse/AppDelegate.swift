@@ -6,9 +6,34 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "DishCoreData")
+        container.loadPersistentStores { notes, error in
+            if let error {
+                print(error.localizedDescription)
+            } else {
+                print("DataBase url - ", notes.url?.absoluteString)
+            }
+        }
+        return container
+    }()
+    
+    //saveContect записывает измененные данные из Context (копии кусочка базы данных находящегося прямо сейчас в работе, в оперативной памяти) в окончательный Container базы данных на жестком диске.
+    func saveContext() {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

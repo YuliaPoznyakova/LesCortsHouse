@@ -28,6 +28,9 @@
 		2667AD9C2C0E406C00F4F935 /* DishListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */; };
 		2667ADA02C107AA200F4F935 /* ProgressHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667AD9F2C107AA200F4F935 /* ProgressHeaderView.swift */; };
 		2667ADA42C12170400F4F935 /* CAGradientLayer+ListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667ADA32C12170400F4F935 /* CAGradientLayer+ListStyle.swift */; };
+		26789FDB2C246D5800BAF15A /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26789FD92C246D5800BAF15A /* Dish+CoreDataProperties.swift */; };
+		26789FDD2C246F0E00BAF15A /* DishStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26789FDC2C246F0E00BAF15A /* DishStorageManager.swift */; };
+		26789FE22C25CFFD00BAF15A /* DishCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26789FE02C25CFFD00BAF15A /* DishCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		2667AD9B2C0E406B00F4F935 /* DishListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListStyle.swift; sourceTree = "<group>"; };
 		2667AD9F2C107AA200F4F935 /* ProgressHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHeaderView.swift; sourceTree = "<group>"; };
 		2667ADA32C12170400F4F935 /* CAGradientLayer+ListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+ListStyle.swift"; sourceTree = "<group>"; };
+		26789FD92C246D5800BAF15A /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		26789FDC2C246F0E00BAF15A /* DishStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishStorageManager.swift; sourceTree = "<group>"; };
+		26789FE12C25CFFD00BAF15A /* DishCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DishCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,9 @@
 		261E574F2BDFEF420076253F = {
 			isa = PBXGroup;
 			children = (
+				26789FE02C25CFFD00BAF15A /* DishCoreData.xcdatamodeld */,
+				26789FD92C246D5800BAF15A /* Dish+CoreDataProperties.swift */,
+				26789FDC2C246F0E00BAF15A /* DishStorageManager.swift */,
 				261E575A2BDFEF420076253F /* LesCortsHouse */,
 				261E57592BDFEF420076253F /* Products */,
 			);
@@ -232,7 +241,10 @@
 				261E575C2BDFEF420076253F /* AppDelegate.swift in Sources */,
 				261E575E2BDFEF420076253F /* SceneDelegate.swift in Sources */,
 				263BCF142C00D0B70037242D /* DishViewController+Section.swift in Sources */,
+				26789FDB2C246D5800BAF15A /* Dish+CoreDataProperties.swift in Sources */,
 				263BCF102BFFDBAC0037242D /* DishViewController+Row.swift in Sources */,
+				26789FE22C25CFFD00BAF15A /* DishCoreData.xcdatamodeld in Sources */,
+				26789FDD2C246F0E00BAF15A /* DishStorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +454,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		26789FE02C25CFFD00BAF15A /* DishCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				26789FE12C25CFFD00BAF15A /* DishCoreData.xcdatamodel */,
+			);
+			currentVersion = 26789FE12C25CFFD00BAF15A /* DishCoreData.xcdatamodel */;
+			name = DishCoreData.xcdatamodeld;
+			path = "/Users/yuliapoznyakova/Documents/Developer Yula/LesCortsHouse/DishCoreData.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 261E57502BDFEF420076253F /* Project object */;
 }

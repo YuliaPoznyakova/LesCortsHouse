@@ -10,7 +10,7 @@ import UIKit
 class DishListViewController: UICollectionViewController {
     
     var dataSource: DataSource!
-    var dishes: [Dish] = Dish.sampleData
+    var dishes: [Dish] { DishStorageManager.shared.fetchDishes() }
     var listStyle: DishListStyle = .all
     var filteredDishes: [Dish] {
         return dishes.filter { listStyle.shouldInclude(spicy: $0.spicy) }.sorted {
@@ -53,7 +53,7 @@ class DishListViewController: UICollectionViewController {
         
         var snapshot = Snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems(dishes.map { $0.title })
+        snapshot.appendItems(dishes.map { $0.id })
         dataSource.apply(snapshot)
         
         let addButton = UIBarButtonItem(
@@ -110,8 +110,13 @@ class DishListViewController: UICollectionViewController {
     func pushDetailListViewForDish(withId id: Dish.ID) {
         let dish = dish(withId: id)
         let viewController = DishViewController(dish: dish) { [weak self] dish in
-            self?.updateDish(dish)
-            self?.updateSnapshot(reloading: [dish.id])
+            if let dish {
+                self?.updateDish(dish)
+                self?.updateSnapshot(reloading: [dish.id])
+            } else {
+                self?.deleteDish(withId: id)
+                self?.updateSnapshot()
+            }
         }
         navigationController?.pushViewController(viewController, animated: true)
     }

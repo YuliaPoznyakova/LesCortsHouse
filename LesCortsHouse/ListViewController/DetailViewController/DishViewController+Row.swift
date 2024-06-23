@@ -11,12 +11,12 @@ extension DishViewController {
     enum Row: Hashable {
         case header(String)
         case title
-        case description
+        case notes
         case editableText(String?, id: String)
         
         var imageName: String? {
             switch self {
-            case .description: return "square.and.pencil"
+            case .notes: return "square.and.pencil"
             default: return nil
             }
         }
